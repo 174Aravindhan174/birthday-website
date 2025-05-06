@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Menaga</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle, #1a1a1a, #000);
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    .heart-photo {
+      width: 200px;
+      height: 200px;
+      background: url('menaga1.jpg') no-repeat center/cover;
+      clip-path: polygon(50% 0%, 61% 12%, 75% 20%, 86% 35%, 94% 50%, 86% 65%, 75% 80%, 61% 88%, 50% 100%, 39% 88%, 25% 80%, 14% 65%, 6% 50%, 14% 35%, 25% 20%, 39% 12%);
+      animation: float 3s ease-in-out infinite;
+      margin: 60px auto 20px;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    .heartbeat-btn {
+      background: red;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px red; }
+      50% { transform: scale(1.1); box-shadow: 0 0 30px red; }
+      100% { transform: scale(1); box-shadow: 0 0 10px red; }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .love-message {
+      font-size: 24px;
+      margin-top: 30px;
+      color: #ff6699;
+      text-shadow: 0 0 10px #ff6699;
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    .surprise-img {
+      width: 250px;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px pink;
+    }
+
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      animation: firework 1s ease-out infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes firework {
+      0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3) translate(100px, -100px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="font-size: 28px; color: pink;">Happy Birthday My Chellakutty</h1>
+
+  <div class="heart-photo"></div>
+
+  <button class="heartbeat-btn" onclick="showLove()">Click My Heartbeat</button>
+
+  <div id="loveContent" class="hidden">
+    <p class="love-message">Every heartbeat of mine whispers your name, Menaga. You are my life, my future, my dream.</p>
+    <img src="couple.jpg" alt="us" class="surprise-img">
+  </div>
+
+  <audio id="bgMusic" src="Remo.mp3"></audio>
+
+  <script>
+    function showLove() {
+      document.getElementById("loveContent").classList.remove("hidden");
+      document.getElementById("bgMusic").play();
+    }
+
+    // Optional Fireworks
+    for (let i = 0; i < 20; i++) {
+      let spark = document.createElement('div');
+      spark.className = 'firework';
+      spark.style.left = Math.random() * window.innerWidth + 'px';
+      spark.style.top = Math.random() * window.innerHeight + 'px';
+      spark.style.background = ['#f0f', '#0ff', '#ff0'][i % 3];
+      document.body.appendChild(spark);
+    }
+  </script>
+
+</body>
+</html>
